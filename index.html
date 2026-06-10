@@ -1,429 +1,445 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Nesta's portfolio - showcasing full-stack development skills and innovative solutions." />
-    <title>Nesta's Portfolio</title>
-    <link rel="icon" href="your-favicon-url.png" type="image/png" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        dark: {
-                            bg: '#0a0a0f',
-                            card: '#1a1a24',
-                            text: '#e2e8f0',
-                            accent: '#6366f1',
-                            secondary: '#8b5cf6',
-                            hover: '#4f46e5'
-                        }
-                    },
-                    fontFamily: {
-                        'sans': ['Inter', 'system-ui', 'sans-serif'],
-                        'mono': ['JetBrains Mono', 'monospace'],
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'glow': 'glow 2s ease-in-out infinite alternate',
-                        'slide-up': 'slideUp 0.5s ease-out',
-                        'fade-in': 'fadeIn 0.6s ease-out',
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-        /* @keyframes glow {
-            from { box-shadow: 0 0 20px #6366f1; }
-            to { box-shadow: 0 0 30px #8b5cf6, 0 0 40px #6366f1; }
-        } */
-        @keyframes slideUp {
-            from { transform: translateY(30px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
-        }
-        body {
-            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a24 100%);
-            background-attachment: fixed;
-        }
-        .glass-effect {
-            backdrop-filter: blur(10px);
-            background: rgba(26, 26, 36, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Nesta Ndereva — Full-Stack Developer. Building financial applications, escrow platforms, and developer tools." />
+  <title>Nesta Ndereva · Full-Stack Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:#0d1117;--bg-surface:#161b22;--bg-raised:#1c2330;
+      --border:rgba(255,255,255,0.08);--border-mid:rgba(255,255,255,0.14);
+      --text-1:#e6edf3;--text-2:#8b949e;--text-3:#484f58;
+      --accent:#00c896;--accent-dim:#007a5e;--accent-glow:rgba(0,200,150,0.12);
+      --tag-bg:rgba(0,200,150,0.1);--tag-text:#00c896;
+      --mono:'JetBrains Mono',monospace;--display:'Syne',sans-serif;--body:'Inter',system-ui,sans-serif;
+    }
+    [data-theme="light"] {
+      --bg:#f6f8fa;--bg-surface:#ffffff;--bg-raised:#eef1f5;
+      --border:rgba(0,0,0,0.08);--border-mid:rgba(0,0,0,0.14);
+      --text-1:#0d1117;--text-2:#57606a;--text-3:#adb5bd;
+      --accent:#007a5e;--accent-dim:#005244;--accent-glow:rgba(0,122,94,0.08);
+      --tag-bg:rgba(0,122,94,0.08);--tag-text:#007a5e;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text-1);font-family:var(--body);font-size:16px;line-height:1.65;transition:background .3s,color .3s;overflow-x:hidden;}
+
+    /* NAV */
+    nav{position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);padding:0 5%;height:60px;display:flex;align-items:center;justify-content:space-between;transition:background .3s;}
+    .nav-logo{font-family:var(--mono);font-size:15px;font-weight:600;color:var(--accent);text-decoration:none;letter-spacing:.02em;}
+    .nav-logo span{color:var(--text-2);font-weight:400;}
+    .nav-right{display:flex;align-items:center;gap:24px;}
+    .nav-links{display:flex;gap:28px;list-style:none;}
+    .nav-links a{font-size:13px;font-weight:500;color:var(--text-2);text-decoration:none;letter-spacing:.03em;transition:color .2s;}
+    .nav-links a:hover{color:var(--accent);}
+    .theme-wrap{display:flex;align-items:center;gap:8px;}
+    .theme-label{font-family:var(--mono);font-size:10px;color:var(--text-3);letter-spacing:.1em;text-transform:uppercase;min-width:32px;}
+    .theme-btn{background:var(--bg-surface);border:1px solid var(--border-mid);border-radius:20px;width:48px;height:26px;cursor:pointer;position:relative;transition:background .3s;flex-shrink:0;}
+    .theme-btn::after{content:'';position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:var(--accent);transition:transform .3s;}
+    [data-theme="light"] .theme-btn::after{transform:translateX(22px);}
+
+    /* HERO */
+    .hero{min-height:calc(100vh - 60px);padding:100px 5% 80px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;border-bottom:1px solid var(--border);position:relative;}
+    .hero::after{content:'';position:absolute;top:0;right:0;width:40%;height:100%;background:radial-gradient(ellipse 80% 60% at 80% 40%,var(--accent-glow),transparent 70%);pointer-events:none;}
+    .hero-label{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:.2em;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+    .hero-label::before{content:'';width:24px;height:1px;background:var(--accent);}
+    h1{font-family:var(--display);font-size:clamp(42px,5.5vw,80px);font-weight:800;line-height:1.02;color:var(--text-1);letter-spacing:-.03em;margin-bottom:10px;}
+    .hero-role{font-family:var(--mono);font-size:clamp(15px,1.8vw,20px);color:var(--text-2);margin-bottom:28px;min-height:30px;}
+    .cursor{display:inline-block;width:2px;height:1.1em;background:var(--accent);vertical-align:text-bottom;margin-left:2px;animation:blink 1s step-end infinite;}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+    .hero-body{font-size:16px;color:var(--text-2);line-height:1.8;max-width:460px;margin-bottom:40px;}
+    .hero-body strong{color:var(--text-1);font-weight:500;}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+    .btn-primary{background:var(--accent);color:#0d1117;border:none;padding:12px 28px;font-family:var(--body);font-size:13px;font-weight:600;letter-spacing:.04em;cursor:pointer;border-radius:6px;text-decoration:none;display:inline-block;transition:opacity .2s,transform .15s;}
+    .btn-primary:hover{opacity:.88;transform:translateY(-1px);}
+    .btn-ghost{background:transparent;color:var(--text-2);border:1px solid var(--border-mid);padding:12px 28px;font-family:var(--body);font-size:13px;font-weight:500;cursor:pointer;border-radius:6px;text-decoration:none;display:inline-block;transition:border-color .2s,color .2s;}
+    .btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
+
+    /* TERMINAL */
+    .terminal{background:var(--bg-surface);border:1px solid var(--border-mid);border-radius:10px;overflow:hidden;font-family:var(--mono);font-size:13px;}
+    .term-bar{background:var(--bg-raised);border-bottom:1px solid var(--border);padding:10px 16px;display:flex;align-items:center;gap:8px;}
+    .dot{width:10px;height:10px;border-radius:50%;}
+    .dot-r{background:#ff5f57;}.dot-y{background:#febc2e;}.dot-g{background:#28c840;}
+    .term-title{font-family:var(--mono);font-size:11px;color:var(--text-3);margin:0 auto;letter-spacing:.05em;}
+    .term-body{padding:20px 20px 24px;line-height:2.1;}
+    .tl{display:flex;gap:8px;margin-bottom:2px;}
+    .tp{color:var(--accent);user-select:none;}
+    .tc{color:var(--text-1);}
+    .to{color:var(--text-2);padding-left:16px;}
+    .tg{color:#28c840;}.ty{color:#febc2e;}.tx{color:var(--text-3);font-size:12px;}
+
+    /* SECTIONS */
+    section{padding:88px 5%;border-bottom:1px solid var(--border);}
+    .sec-tag{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;margin-bottom:16px;}
+    h2{font-family:var(--display);font-size:clamp(28px,3.5vw,48px);font-weight:800;color:var(--text-1);line-height:1.08;letter-spacing:-.03em;margin-bottom:16px;}
+    h2 em{font-style:italic;color:var(--accent);font-family:var(--display);}
+    .sec-lead{font-size:16px;color:var(--text-2);max-width:560px;line-height:1.8;margin-bottom:52px;}
+
+    /* ABOUT */
+    .about-grid{display:grid;grid-template-columns:3fr 2fr;gap:60px;align-items:start;}
+    .about-body{font-size:16px;color:var(--text-2);line-height:1.85;}
+    .about-body strong{color:var(--text-1);font-weight:500;}
+    .about-body p+p{margin-top:16px;}
+    .looking-card{background:var(--bg-surface);border:1px solid var(--border);border-radius:8px;padding:24px;}
+    .looking-card h3{font-family:var(--mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;}
+    .looking-list{list-style:none;}
+    .looking-list li{font-size:13px;color:var(--text-2);padding:8px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;}
+    .looking-list li:last-child{border-bottom:none;}
+    .looking-list li::before{content:'→';color:var(--accent);font-family:var(--mono);font-size:12px;}
+
+    /* SKILLS */
+    .skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+    .skill-col{background:var(--bg-surface);padding:28px 24px;transition:background .2s;}
+    .skill-col:hover{background:var(--bg-raised);}
+    .skill-col-title{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border);}
+    .skill-tags{display:flex;flex-wrap:wrap;gap:6px;}
+    .tag{background:var(--tag-bg);color:var(--tag-text);font-family:var(--mono);font-size:11px;font-weight:500;padding:4px 10px;border-radius:4px;border:1px solid rgba(0,200,150,0.15);}
+    [data-theme="light"] .tag{border-color:rgba(0,122,94,0.15);}
+
+    /* PROJECTS */
+    .projects-list{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+    .project-row{background:var(--bg-surface);padding:36px 40px;display:grid;grid-template-columns:1fr 2fr 1fr;gap:40px;align-items:start;transition:background .2s;}
+    .project-row:hover{background:var(--bg-raised);}
+    .project-status{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:20px;margin-bottom:12px;}
+    .status-live{background:rgba(40,200,64,0.12);color:#28c840;border:1px solid rgba(40,200,64,0.2);}
+    .status-dev{background:rgba(254,188,46,0.12);color:#febc2e;border:1px solid rgba(254,188,46,0.2);}
+    .project-name{font-family:var(--display);font-size:22px;font-weight:800;color:var(--text-1);letter-spacing:-.02em;margin-bottom:6px;}
+    .project-type{font-family:var(--mono);font-size:11px;color:var(--text-3);letter-spacing:.1em;text-transform:uppercase;}
+    .project-body{font-size:14px;color:var(--text-2);line-height:1.75;}
+    .project-body p{margin-bottom:14px;}
+    .project-features{list-style:none;margin-top:4px;}
+    .project-features li{font-size:13px;color:var(--text-2);padding:4px 0;padding-left:16px;position:relative;}
+    .project-features li::before{content:'·';position:absolute;left:4px;color:var(--accent);}
+    .stack-label{font-family:var(--mono);font-size:10px;color:var(--text-3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;}
+    .stack-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px;}
+    .project-link{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:12px;font-weight:500;color:var(--accent);text-decoration:none;letter-spacing:.06em;border-bottom:1px solid transparent;transition:border-color .2s;}
+    .project-link:hover{border-color:var(--accent-dim);}
+    .gh-icon{width:14px;height:14px;fill:var(--accent);}
+
+    /* LEARNINGS */
+    .learnings-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+    .learning-card{background:var(--bg-surface);padding:32px;transition:background .2s;}
+    .learning-card:hover{background:var(--bg-raised);}
+    .learning-icon{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:.15em;text-transform:uppercase;margin-bottom:14px;}
+    .learning-title{font-family:var(--display);font-size:20px;font-weight:800;color:var(--text-1);letter-spacing:-.02em;margin-bottom:10px;}
+    .learning-body{font-size:14px;color:var(--text-2);line-height:1.75;}
+
+    /* CONTACT */
+    .contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+    .contact-links{display:flex;flex-direction:column;gap:12px;}
+    .contact-link{display:flex;align-items:center;gap:16px;padding:18px 24px;background:var(--bg-surface);border:1px solid var(--border);border-radius:8px;text-decoration:none;transition:border-color .2s,background .2s;}
+    .contact-link:hover{border-color:var(--accent);background:var(--bg-raised);}
+    .contact-link-icon{width:36px;height:36px;border-radius:8px;background:var(--tag-bg);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .contact-link-icon svg{width:16px;height:16px;fill:var(--accent);}
+    .contact-link-label{font-size:13px;font-weight:600;color:var(--text-1);}
+    .contact-link-sub{font-family:var(--mono);font-size:11px;color:var(--text-3);margin-top:1px;}
+
+    /* FOOTER */
+    footer{padding:32px 5%;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);}
+    .footer-copy{font-family:var(--mono);font-size:11px;color:var(--text-3);letter-spacing:.06em;}
+    .footer-right{font-family:var(--mono);font-size:11px;color:var(--text-3);letter-spacing:.06em;}
+
+    /* RESPONSIVE */
+    @media(max-width:960px){
+      .hero{grid-template-columns:1fr;}
+      .terminal{display:none;}
+      .about-grid{grid-template-columns:1fr;}
+      .skills-grid{grid-template-columns:repeat(2,1fr);}
+      .project-row{grid-template-columns:1fr;gap:20px;padding:28px 24px;}
+      .learnings-grid{grid-template-columns:1fr;}
+      .contact-inner{grid-template-columns:1fr;}
+      .nav-links{display:none;}
+    }
+    @media(max-width:540px){
+      .skills-grid{grid-template-columns:1fr;}
+      footer{flex-direction:column;gap:8px;text-align:center;}
+    }
+  </style>
 </head>
-<body class="bg-dark-bg text-dark-text min-h-screen font-sans">
-    <div class="max-w-6xl mx-auto px-4 py-6 relative z-10">
+<body>
 
-        <!-- Header -->
-        <header class="text-center mb-12 animate-fade-in">
-            <div class="mb-6">
-                <h1 class="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-green-600 to-teal-600 bg-clip-text text-transparent">
-                    NESTA NDEREVA
-                </h1>
-                <p class="text-xl md:text-2xl text-gray-300 font-mono">
-                    Full-Stack Developer
-                </p>
-            </div>
-            <nav class="flex justify-center flex-wrap gap-6 text-sm font-medium">
-                <a href="#home" class="hover:text-dark-accent transition-all duration-300 hover:scale-110">Home</a>
-                <a href="#about" class="hover:text-dark-accent transition-all duration-300 hover:scale-110">About</a>
-                <a href="#projects" class="hover:text-dark-accent transition-all duration-300 hover:scale-110">Projects</a>
-                <a href="#skills" class="hover:text-dark-accent transition-all duration-300 hover:scale-110">Skills</a>
-                <a href="#contact" class="hover:text-dark-accent transition-all duration-300 hover:scale-110">Contact</a>
-                <a href="#" class="hover:text-dark-accent transition-all duration-300 hover:scale-110">Resume</a>
-            </nav>
-        </header>
+<nav>
+  <a href="#" class="nav-logo">nesta<span>.dev</span></a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="theme-wrap">
+      <span class="theme-label" id="theme-label">Dark</span>
+      <button class="theme-btn" id="theme-btn" aria-label="Toggle light/dark mode"></button>
+    </div>
+  </div>
+</nav>
 
-        <!-- About-->
-        <section id="about" class="mb-12 animate-slide-up">
-            <div class="glass-effect rounded-2xl p-6 md:p-8">
-                <h2 class="text-2xl font-bold mb-6 text-dark-accent flex items-center">
-                    <span class="mr-3">👨‍💻</span> About Me
-                </h2>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <p class="text-lg leading-relaxed mb-4">
-                            Hello! I'm Nesta, a passionate software developer who thrives on transforming ideas into functional, elegant solutions.
-                        </p>
-                        <p class="leading-relaxed text-gray-300">
-                            I bring a versatile skill set spanning <strong>web development, database management, and API integration</strong>. 
-                            My current experience as a student ranges from building financial applications to creating secure transaction systems, 
-                            always with a focus on user experience and robust architecture.
-                        </p>
-                    </div>
-                    <div class="bg-dark-bg bg-opacity-50 rounded-xl p-4">
-                        <h3 class="font-semibold mb-3 text-dark-secondary">🎯 What I'm Looking For</h3>
-                        <ul class="space-y-2 text-sm text-gray-300">
-                            <li>• <strong>Software Development Internships</strong></li>
-                            <li>• <strong>Web Development Roles</strong></li>
-                            <li>• <strong>Backend Engineering Positions</strong></li>
-                            <li>• <strong>Full-Stack Development Opportunities</strong></li>
-                            <li>• <strong>Artifical Intelligence/Machine Learning roles</strong></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
+<div class="hero">
+  <div>
+    <div class="hero-label">Full-Stack Developer &middot; Nairobi</div>
+    <h1>Nesta<br>Ndereva.</h1>
+    <div class="hero-role" id="typewriter"><span class="cursor"></span></div>
+    <p class="hero-body">I build <strong>financial applications</strong>, <strong>secure payment systems</strong>, and <strong>developer tools</strong> &mdash; always with a focus on architecture that holds up under real-world complexity.</p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="mailto:nestandereva@gmail.com" class="btn-ghost">Get in Touch</a>
+    </div>
+  </div>
+  <div class="terminal" aria-hidden="true">
+    <div class="term-bar">
+      <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+      <span class="term-title">nesta@dev ~ portfolio</span>
+    </div>
+    <div class="term-body">
+      <div class="tl"><span class="tp">$</span><span class="tc">whoami</span></div>
+      <div class="to tg">nesta_ndereva &nbsp;<span class="tx">// full-stack dev, student</span></div>
+      <div class="tl" style="margin-top:10px"><span class="tp">$</span><span class="tc">ls ./projects</span></div>
+      <div class="to ty">TrackMyCash/ &nbsp;PesaCrow/ &nbsp;FileSyncer/</div>
+      <div class="tl" style="margin-top:10px"><span class="tp">$</span><span class="tc">cat stack.txt</span></div>
+      <div class="to">Python &middot; Django &middot; React</div>
+      <div class="to">PostgreSQL &middot; MySQL &middot; OracleDB</div>
+      <div class="to">PyQt5 &middot; Google Drive API</div>
+      <div class="to">Mpesa API &middot; Vercel &middot; Git</div>
+      <div class="tl" style="margin-top:10px"><span class="tp">$</span><span class="tc">echo $STATUS</span></div>
+      <div class="to tg">Open to internships &amp; roles <span class="cursor" style="animation-delay:.5s"></span></div>
+    </div>
+  </div>
+</div>
 
-        <!-- Skillzzzzz-->
-        <section id="skills" class="mb-12 animate-slide-up">
-            <div class="glass-effect rounded-2xl p-6 md:p-8">
-                <h2 class="text-3xl font-bold mb-6 text-dark-accent flex items-center">
-                    <span class="mr-3">🛠️</span> Technical Skills
-                </h2>
-                <div class="grid md:grid-cols-4 gap-6">
-                    <div class="bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl p-4 card-hover">
-                        <h3 class="font-semibold mb-3 text-white">Backend Development</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-2 py-1 bg-white bg-opacity-20 text-white text-xs rounded-full">Python</span>
-                            <span class="px-2 py-1 bg-white bg-opacity-20 text-white text-xs rounded-full">Django</span>
-                            <span class="px-2 py-1 bg-white bg-opacity-20 text-white text-xs rounded-full">Java</span>
-                        </div>
-                    </div>
-                    <div class="bg-gradient-to-br from-green-600 to-green-800 rounded-xl p-4 card-hover">
-                        <h3 class="font-semibold mb-3 text-white">Databases</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-2 py-1 bg-white bg-opacity-20 text-white text-xs rounded-full">PostgreSQL</span>
-                            <span class="px-2 py-1 bg-white bg-opacity-20 text-white text-xs rounded-full">MySQL</span>
-                            <span class="px-2 py-1 bg-white bg-opacity-20 text-white text-xs rounded-full">OracleDB</span>
-                        </div>
-                    </div>
-                    <div class="bg-gradient-to-br from-gray-600 to-gray-400 rounded-xl p-4 card-hover">
-                        <h3 class="font-semibold mb-3 text-white">Frameworks</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-2 py-1 bg-white bg-opacity-20 text-white text-xs rounded-full">Django</span>
-                            <span class="px-2 py-1 bg-white bg-opacity-20 text-white text-xs rounded-full">React</span>
-                            <span class="px-2 py-1 bg-white bg-opacity-20 text-white text-xs rounded-full">PyQt5</span>
-                        </div>
-                    </div>
-                    <div class="bg-gradient-to-br from-purple-600 to-purple-800 rounded-xl p-4 card-hover">
-                        <h3 class="font-semibold mb-3 text-white">Integration & Deployment</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-2 py-1 bg-white bg-opacity-20 text-white text-xs rounded-full">APIs</span>
-                            <span class="px-2 py-1 bg-white bg-opacity-20 text-white text-xs rounded-full">Vercel</span>
-                            <span class="px-2 py-1 bg-white bg-opacity-20 text-white text-xs rounded-full">Git</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<section id="about">
+  <div class="sec-tag">// About</div>
+  <h2>Builder. Student.<br><em>Problem solver.</em></h2>
+  <div class="about-grid">
+    <div class="about-body">
+      <p>Hello &mdash; I'm Nesta, a software developer who thrives on transforming ideas into functional, elegant solutions. I bring a versatile skill set spanning <strong>web development</strong>, <strong>database management</strong>, and <strong>API integration</strong>.</p>
+      <p>My experience ranges from building financial applications to creating secure transaction systems, always with a focus on user experience and robust architecture. Right now I'm especially drawn to the intersection of fintech and developer tooling &mdash; two areas where good software visibly changes what people can do.</p>
+      <p>Based in <strong>Nairobi</strong>. Building in public. Always learning.</p>
+    </div>
+    <div class="looking-card">
+      <h3>// Open to</h3>
+      <ul class="looking-list">
+        <li>Software Development Internships</li>
+        <li>Web Development Roles</li>
+        <li>Backend Engineering Positions</li>
+        <li>Full-Stack Opportunities</li>
+        <li>AI / Machine Learning Roles</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-        <!-- My Projects Section :) -->
-        <section id="projects" class="mb-12">
-            <h2 class="text-4xl font-bold mb-8 text-center">Featured Projects</h2>
-            
-            <div class="grid lg:grid-cols-2 gap-8">
-                <!-- Project 1: TrackMyCash -->
-                <div class="glass-effect rounded-2xl p-6 animate-slide-up">
-                    <div class="flex items-center mb-4">
-                        <span class="text-2xl mr-3">💰</span>
-                        <h3 class="text-xl font-semibold text-dark-accent">TrackMyCash</h3>
-                        <span class="ml-auto px-2 py-1 bg-green-600 text-white text-xs rounded-full">Live</span>
-                    </div>
-                    <p class="mb-4 text-gray-300 text-sm leading-relaxed">
-                        A comprehensive expense tracker helping users manage finances through intuitive transaction recording and budget visualization.
-                    </p>
-                    
-                    <div class="mb-4">
-                        <h4 class="font-medium mb-2 text-sm text-dark-secondary">🎯 Key Features:</h4>
-                        <ul class="list-disc list-inside space-y-1 text-xs text-gray-400">
-                            <li>Complete CRUD operations for financial data</li>
-                            <li>Dynamic budget tracking with progress bars</li>
-                            <li>Interactive expense visualization charts</li>
-                            <li>Production deployment on Vercel</li>
-                        </ul>
-                    </div>
+<section id="skills">
+  <div class="sec-tag">// Technical Skills</div>
+  <h2>The stack I <em>build with.</em></h2>
+  <p class="sec-lead">Languages, frameworks, databases, and tools I use day-to-day and in production.</p>
+  <div class="skills-grid">
+    <div class="skill-col">
+      <div class="skill-col-title">Backend</div>
+      <div class="skill-tags"><span class="tag">Python</span><span class="tag">Django</span><span class="tag">Java</span></div>
+    </div>
+    <div class="skill-col">
+      <div class="skill-col-title">Databases</div>
+      <div class="skill-tags"><span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">OracleDB</span><span class="tag">SQLite</span></div>
+    </div>
+    <div class="skill-col">
+      <div class="skill-col-title">Frameworks &amp; UI</div>
+      <div class="skill-tags"><span class="tag">React</span><span class="tag">Django</span><span class="tag">PyQt5</span></div>
+    </div>
+    <div class="skill-col">
+      <div class="skill-col-title">Deployment &amp; APIs</div>
+      <div class="skill-tags"><span class="tag">Vercel</span><span class="tag">Git</span><span class="tag">Mpesa API</span><span class="tag">Google Drive API</span><span class="tag">OAuth2</span></div>
+    </div>
+  </div>
+</section>
 
-                    <div class="mb-4">
-                        <h4 class="font-medium mb-2 text-sm text-dark-secondary">🔧 Tech Stack:</h4>
-                        <div class="flex flex-wrap gap-1">
-                            <span class="px-2 py-1 bg-green-600 text-white text-xs rounded-full">Python</span>
-                            <span class="px-2 py-1 bg-green-600 text-white text-xs rounded-full">Django</span>
-                            <span class="px-2 py-1 bg-green-600 text-white text-xs rounded-full">Chart.js</span>
-                            <span class="px-2 py-1 bg-green-800 text-white text-xs rounded-full">PostgreSQL</span>
-                        </div>
-                    </div>
+<section id="projects">
+  <div class="sec-tag">// Projects</div>
+  <h2>Things I've <em>shipped.</em></h2>
+  <p class="sec-lead">A selection of projects built from scratch &mdash; real code, real deployments, real problems solved.</p>
+  <div class="projects-list">
 
-                    <a href="https://github.com/NestaNdereva23/TrackMyCash" 
-                       class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-dark-accent to-dark-secondary text-white rounded-lg hover:from-dark-hover hover:to-dark-accent transition-all duration-300 transform hover:scale-105">
-                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"></path>
-                        </svg>
-                        View Project
-                    </a>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="glass-effect rounded-2xl p-6 animate-slide-up">
-                    <div class="flex items-center mb-4">
-                        <span class="text-2xl mr-3">🔐</span>
-                        <h3 class="text-xl font-semibold text-dark-accent">PesaCrow</h3>
-                        <span class="ml-auto px-2 py-1 bg-orange-600 text-white text-xs rounded-full">In Development</span>
-                    </div>
-                    <p class="mb-4 text-gray-300 text-sm leading-relaxed">
-                        A secure milestone-based escrow platform revolutionizing how software projects are managed and payments are processed.
-                    </p>
-                    
-                    <div class="mb-4">
-                        <h4 class="font-medium mb-2 text-sm text-dark-secondary">🎯 Key Features:</h4>
-                        <ul class="list-disc list-inside space-y-1 text-xs text-gray-400">
-                            <li>Digital contract system with milestone tracking</li>
-                            <li>Mpesa payment gateway integration</li>
-                            <li>Dispute resolution workflow</li>
-                        </ul>
-                    </div>
-
-                    <div class="mb-4">
-                        <h4 class="font-medium mb-2 text-sm text-dark-secondary">🔧 Tech Stack:</h4>
-                        <div class="flex flex-wrap gap-1">
-                            <span class="px-2 py-1 bg-green-600 text-white text-xs rounded-full">Python</span>
-                            <span class="px-2 py-1 bg-green-600 text-white text-xs rounded-full">Django</span>
-                            <span class="px-2 py-1 bg-green-600 text-white text-xs rounded-full">PostgreSQL</span>
-                            <span class="px-2 py-1 bg-green-600 text-white text-xs rounded-full">Mpesa API</span>
-                        </div>
-                    </div>
-
-                    <a href="https://github.com/NestaNdereva23/PesaCrow.git" 
-                       class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-dark-accent to-dark-secondary text-white rounded-lg hover:from-dark-hover hover:to-dark-accent transition-all duration-300 transform hover:scale-105">
-                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"></path>
-                        </svg>
-                        View Project
-                    </a>
-                </div>
-
-                 <!-- Project 3 -->
-                <div class="glass-effect rounded-2xl p-6 animate-slide-up">
-                    <div class="flex items-center mb-4">
-                        <span class="text-2xl mr-3">🔁</span>
-                        <h3 class="text-xl font-semibold text-dark-accent">FileSyncer</h3>
-                        <span class="ml-auto px-2 py-1 bg-orange-600 text-white text-xs rounded-full">In Development</span>
-                    </div>
-                    <p class="mb-4 text-gray-300 text-sm leading-relaxed">
-                        A Python-based file synchronization GUI application that provides seamless integration with 
-                        Google Drive through file management for easy file synchronization, upload and download on linux.
-                    </p>
-                    
-                    <div class="mb-4">
-                        <h4 class="font-medium mb-2 text-sm text-dark-secondary">🎯 Key Features:</h4>
-                        <ul class="list-disc list-inside space-y-1 text-xs text-gray-400">
-                            <li>Google Drive API Integration: Leverages Google Drive API v3 for secure file operations and metadata retrieval</li>
-                            <li>User Authentication Management: Secure OAuth2 authentication flow</li>
-                            <li>Caching System: Implements local database (SQLite) caching to minimize API calls and improve performance</li>
-                        </ul>
-                    </div>
-
-                    <div class="mb-4">
-                        <h4 class="font-medium mb-2 text-sm text-dark-secondary">🔧 Tech Stack:</h4>
-                        <div class="flex flex-wrap gap-1">
-                            <span class="px-2 py-1 bg-green-600 text-white text-xs rounded-full">Python</span>
-                            <span class="px-2 py-1 bg-green-600 text-white text-xs rounded-full">PyQt5</span>
-                            <span class="px-2 py-1 bg-green-600 text-white text-xs rounded-full">SQLite</span>
-                            <span class="px-2 py-1 bg-green-600 text-white text-xs rounded-full">Google Drive API</span>
-                            <span class="px-2 py-1 bg-green-600 text-white text-xs rounded-full">OAuth2</span>
-                        
-                        </div>
-                    </div>
-
-                    <a href="https://github.com/NestaNdereva23/PesaCrow.git" 
-                       class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-dark-accent to-dark-secondary text-white rounded-lg hover:from-dark-hover hover:to-dark-accent transition-all duration-300 transform hover:scale-105">
-                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"></path>
-                        </svg>
-                        View Project
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Key Takeaways Section -->
-        <section id="takeaways" class="mb-12 animate-slide-up">
-            <div class="glass-effect rounded-2xl p-6 md:p-8 card-hover">
-                <h2 class="text-3xl font-bold mb-6 text-dark-accent flex items-center">
-                    <span class="mr-3">💡</span> Key Learnings & Growth
-                </h2>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="space-y-4">
-                        <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-4">
-                            <h3 class="font-semibold mb-2 text-white">🏗️ System Architecture</h3>
-                            <p class="text-sm text-blue-100">
-                                Learned to design scalable database schemas and implement secure authentication systems 
-                                that handle real-world complexity.
-                            </p>
-                        </div>
-                        <div class="bg-gradient-to-r from-green-600 to-teal-600 rounded-xl p-4">
-                            <h3 class="font-semibold mb-2 text-white">🔗 API Integration</h3>
-                            <p class="text-sm text-green-100">
-                                Learned about external API integration, particularly payment gateways, handling edge cases 
-                                and ensuring transaction security.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="space-y-4">
-                        <div class="bg-gradient-to-r from-orange-600 to-red-600 rounded-xl p-4">
-                            <h3 class="font-semibold mb-2 text-white">🎨 User Experience</h3>
-                            <p class="text-sm text-orange-100">
-                                Developed an eye for intuitive interfaces and responsive design, always prioritizing 
-                                user needs in feature development.
-                            </p>
-                        </div>
-                        <div class="bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl p-4">
-                            <h3 class="font-semibold mb-2 text-white">⚡ Problem Solving</h3>
-                            <p class="text-sm text-purple-100">
-                                Enhanced debugging skills and learned to approach complex problems systematically, 
-                                breaking them into manageable components.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="mb-12 animate-slide-up">
-            <div class="glass-effect rounded-2xl p-6 md:p-8 card-hover">
-                <h2 class="text-3xl font-bold mb-6 text-dark-accent text-center flex items-center justify-center">
-                    <span class="mr-3">🚀</span> Let's Build Something Amazing
-                </h2>
-                <p class="text-center mb-8 text-gray-300">
-                    Ready to contribute to innovative projects and grow with a dynamic team!
-                </p>
-                
-                <div class="flex flex-col md:flex-row justify-center gap-4">
-                    <a href="mailto:nestandereva@gmail.com" 
-                       class="flex items-center justify-center px-6 py-3 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-xl hover:from-red-700 hover:to-red-800 transition-all duration-300 transform hover:scale-105">
-                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-                        </svg>
-                        Email Me
-                    </a>
-                    
-                    <a href="https://github.com/NestaNdereva23" 
-                       class="flex items-center justify-center px-6 py-3 bg-gradient-to-r from-gray-800 to-gray-900 text-white rounded-xl hover:from-gray-900 hover:to-black transition-all duration-300 transform hover:scale-105">
-                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"></path>
-                        </svg>
-                        GitHub
-                    </a>
-                    
-                    <a href="#" 
-                       class="flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 transform hover:scale-105">
-                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clip-rule="evenodd"></path>
-                        </svg>
-                        LinkedIn
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="text-center py-8 border-t border-slate-700">
-            <p class="text-slate-400 font-mono">
-                © 2025 Nesta Ndereva • Built with passion and code ✨
-            </p>
-        </footer>
+    <div class="project-row">
+      <div>
+        <div class="project-status status-live">Live</div>
+        <div class="project-name">TrackMyCash</div>
+        <div class="project-type">Fintech &middot; Web App</div>
+      </div>
+      <div class="project-body">
+        <p>A comprehensive expense tracker helping users manage finances through intuitive transaction recording and budget visualisation.</p>
+        <ul class="project-features">
+          <li>Complete CRUD operations for financial data</li>
+          <li>Dynamic budget tracking with progress bars</li>
+          <li>Interactive expense visualisation with Chart.js</li>
+          <li>Production deployment on Vercel</li>
+        </ul>
+      </div>
+      <div>
+        <div class="stack-label">Stack</div>
+        <div class="stack-tags"><span class="tag">Python</span><span class="tag">Django</span><span class="tag">Chart.js</span><span class="tag">PostgreSQL</span></div>
+        <a href="https://github.com/NestaNdereva23/TrackMyCash" class="project-link" target="_blank" rel="noopener">
+          <svg class="gh-icon" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"/></svg>
+          View on GitHub
+        </a>
+      </div>
     </div>
 
-    
-    <script>
-        
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+    <div class="project-row">
+      <div>
+        <div class="project-status status-dev">In Development</div>
+        <div class="project-name">PesaCrow</div>
+        <div class="project-type">Fintech &middot; Escrow Platform</div>
+      </div>
+      <div class="project-body">
+        <p>A secure milestone-based escrow platform revolutionising how software projects are managed and payments processed &mdash; built for the East African market.</p>
+        <ul class="project-features">
+          <li>Digital contract system with milestone tracking</li>
+          <li>Mpesa payment gateway integration</li>
+          <li>Dispute resolution workflow</li>
+        </ul>
+      </div>
+      <div>
+        <div class="stack-label">Stack</div>
+        <div class="stack-tags"><span class="tag">Python</span><span class="tag">Django</span><span class="tag">PostgreSQL</span><span class="tag">Mpesa API</span></div>
+        <a href="https://github.com/NestaNdereva23/PesaCrow" class="project-link" target="_blank" rel="noopener">
+          <svg class="gh-icon" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"/></svg>
+          View on GitHub
+        </a>
+      </div>
+    </div>
 
-        
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+    <div class="project-row">
+      <div>
+        <div class="project-status status-dev">In Development</div>
+        <div class="project-name">FileSyncer</div>
+        <div class="project-type">Developer Tool &middot; Desktop</div>
+      </div>
+      <div class="project-body">
+        <p>A Python-based file synchronisation GUI providing seamless Google Drive integration &mdash; upload, download, and sync built for Linux.</p>
+        <ul class="project-features">
+          <li>Google Drive API v3 for secure file operations</li>
+          <li>Secure OAuth2 authentication flow</li>
+          <li>SQLite caching to minimise API calls and improve performance</li>
+        </ul>
+      </div>
+      <div>
+        <div class="stack-label">Stack</div>
+        <div class="stack-tags"><span class="tag">Python</span><span class="tag">PyQt5</span><span class="tag">SQLite</span><span class="tag">Google Drive API</span><span class="tag">OAuth2</span></div>
+        <a href="https://github.com/NestaNdereva23/FileSyncer" class="project-link" target="_blank" rel="noopener">
+          <svg class="gh-icon" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"/></svg>
+          View on GitHub
+        </a>
+      </div>
+    </div>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
+  </div>
+</section>
 
-        // Observe all sections for scroll animations
-        document.querySelectorAll('section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(30px)';
-            section.style.transition = 'all 0.6s ease-out';
-            observer.observe(section);
-        });
-    </script>
+<section id="learnings">
+  <div class="sec-tag">// Growth</div>
+  <h2>What building has <em>taught me.</em></h2>
+  <p class="sec-lead">The lessons that stuck &mdash; not from tutorials, but from shipping real things.</p>
+  <div class="learnings-grid">
+    <div class="learning-card">
+      <div class="learning-icon">// Architecture</div>
+      <div class="learning-title">System Architecture</div>
+      <div class="learning-body">Learned to design scalable database schemas and implement secure authentication systems that handle real-world complexity &mdash; not just demo data.</div>
+    </div>
+    <div class="learning-card">
+      <div class="learning-icon">// Integrations</div>
+      <div class="learning-title">API Integration</div>
+      <div class="learning-body">Hands-on experience with payment gateways and cloud APIs, handling edge cases and ensuring transaction security under failure conditions.</div>
+    </div>
+    <div class="learning-card">
+      <div class="learning-icon">// Design</div>
+      <div class="learning-title">User Experience</div>
+      <div class="learning-body">Developed a sharper eye for intuitive interfaces and responsive design. Good UX isn't decoration &mdash; it's the difference between software people use and software they abandon.</div>
+    </div>
+    <div class="learning-card">
+      <div class="learning-icon">// Mindset</div>
+      <div class="learning-title">Problem Solving</div>
+      <div class="learning-body">Sharpened debugging instincts and the habit of breaking complex problems into manageable components &mdash; systematically, not by intuition alone.</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-inner">
+    <div>
+      <div class="sec-tag">// Contact</div>
+      <h2>Let's build something <em>together.</em></h2>
+      <p style="font-size:16px;color:var(--text-2);line-height:1.8;max-width:400px;margin-top:16px;">Ready to contribute to innovative projects and grow with a dynamic team. Whether it's an internship, a role, or just a conversation &mdash; I'm here.</p>
+    </div>
+    <div class="contact-links">
+      <a href="mailto:nestandereva@gmail.com" class="contact-link">
+        <div class="contact-link-icon"><svg viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg></div>
+        <div><div class="contact-link-label">Send an email</div><div class="contact-link-sub">nestandereva@gmail.com</div></div>
+      </a>
+      <a href="https://github.com/NestaNdereva23" class="contact-link" target="_blank" rel="noopener">
+        <div class="contact-link-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"/></svg></div>
+        <div><div class="contact-link-label">GitHub</div><div class="contact-link-sub">github.com/NestaNdereva23</div></div>
+      </a>
+      <a href="#" class="contact-link">
+        <div class="contact-link-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clip-rule="evenodd"/></svg></div>
+        <div><div class="contact-link-label">LinkedIn</div><div class="contact-link-sub">Add your LinkedIn URL</div></div>
+      </a>
+      <a href="#" class="contact-link">
+        <div class="contact-link-icon"><svg viewBox="0 0 20 20" fill="none"><path d="M7 4H4a1 1 0 00-1 1v10a1 1 0 001 1h12a1 1 0 001-1V5a1 1 0 00-1-1h-3M7 4V3a1 1 0 011-1h4a1 1 0 011 1v1M7 4h6" stroke="var(--accent)" stroke-width="1.5"/></svg></div>
+        <div><div class="contact-link-label">Resume / CV</div><div class="contact-link-sub">Download PDF</div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-copy">&#169; 2026 Nesta Ndereva &middot; Built with HTML, CSS &amp; intent</div>
+  <div class="footer-right">Nairobi, Kenya &middot; 1.2921&#176; S &middot; 36.8219&#176; E</div>
+</footer>
+
+<script>
+  const btn = document.getElementById('theme-btn');
+  const lbl = document.getElementById('theme-label');
+  btn.addEventListener('click', () => {
+    const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+    document.documentElement.setAttribute('data-theme', dark ? 'light' : 'dark');
+    lbl.textContent = dark ? 'Light' : 'Dark';
+  });
+
+  const phrases = ['Python · Django Developer','Full-Stack Engineer','Fintech Builder','Open to Internships','Backend Engineer'];
+  let pi=0, ci=0, del=false;
+  const tw = document.getElementById('typewriter');
+  function type() {
+    const p = phrases[pi];
+    if (!del) {
+      ci++; tw.innerHTML = p.slice(0,ci)+'<span class="cursor"></span>';
+      if (ci===p.length){del=true;setTimeout(type,1800);return;}
+      setTimeout(type,68);
+    } else {
+      ci--; tw.innerHTML = p.slice(0,ci)+'<span class="cursor"></span>';
+      if (ci===0){del=false;pi=(pi+1)%phrases.length;setTimeout(type,300);return;}
+      setTimeout(type,32);
+    }
+  }
+  setTimeout(type,600);
+
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';obs.unobserve(e.target);}
+    });
+  },{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('section,.project-row,.learning-card,.skill-col').forEach(el=>{
+    el.style.opacity='0';el.style.transform='translateY(24px)';el.style.transition='opacity .55s ease,transform .55s ease';obs.observe(el);
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      const t=document.querySelector(a.getAttribute('href'));
+      if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}
+    });
+  });
+</script>
 </body>
 </html>
